@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <tittle>Adventure Game</tittle>
+    
+    </head>
+    <body>
+        <h1>Adventure Game v0.1</h1>
+        <p>BY:Damarius Henderson</p>
+        <script>
+            
+            var invintory = {
+                coins:100,
+                rubySlipers:0,
+                apples:0,
+                goldenkey:0,
+                heart:0,
+                brain:0,
+                courage:0,
+                sword:0
+            }
+            var player = {
+                firstname:"",
+                lastname:"",
+                gender:"",
+                age:0,
+                health:100,
+                score:0,
+                
+                
+            }
+            var flyingmonkey = {
+                damage:10,
+                health:30,
+                discription:"a flying monkey with wings and is trying to attack me",
+            }
+            Start();
+        function Start(){
+            player.firstname = prompt("what is your name my fellow wanderer?","enter your name ");
+            player.lastname = prompt("what is your last name fellow wanderer?","last name")
+             player.gender = prompt("what is your gender fellow wanderer?","gender")
+             player.age = prompt("how old are you?","age")
+            alert("Welcome to my humble world " + player.firstname + " " + player.lastname+ "\n");
+            var beginAdv = confirm("are you ready to begin your new life?");
+            
+            if(beginAdv){
+                Village();
+                
+            }
+            else{
+                alert("this is no life for a cowerd!!! come back when you are ready")
+            }
+            function Village(){
+               var village = prompt("you have now entered the murklands, this is the only town for miles.There are many shacks some containing goods to bars.Enter all at your own risk.we have a black smith an inn a market and the dark / shady road the villagers call it leads out of town");
+                
+                if(village == "blacksmith"|| village == "go to blacksmith") {
+                    BLK();
+                    
+                }
+                else if(village == "inn" || village=="go to inn"){
+                    alert("you enter inn and the inn kepper says'what can i do for you? a room, food, maby sit by our fire?");
+                    Village();
+                }
+                else if(village == "market" || village == "go to market"){
+                    alert("there is a sign on the entrance that says'out at lunch be back when i feel");
+                    Village();
+                }
+                else if(village == "dark road" || village == "go on the shady road"){
+                    YBR();
+                }
+                else{
+                    alert("i dont understand "+ village);
+                    Village();
+                }
+            }
+            function BLK (){
+                var blk = prompt("you have now entered the black smiths domain his reputation of a mighty swords smith is very real,you walk up to him and say'i need a powerful wepon for my journey' he stares at you blankly as if he didint understand what you said.'you could eathier 'ring the bell'to see of he is serious or just 'exit'and go back to the village \np - buy sword")
+                
+                if (blk == "ring the bell" || blk == "ring bell"){
+                    alert("'you filthy scum i was examining you,if your that unpatient maby you should just leave'");
+                }
+                if(blk == "buy sword" && invintory.coins == 100 ){
+                    invintory.coins = invintory.coins - 100;
+                    invintory.sword = 1;
+                    alert("you have baught a sword!! np\Swords = " + invintory.sword
+                     + "\n coins = " + invintory.sword);
+                    Village();
+                }
+                 else { 
+                    Village();
+                }
+                
+                }
+               
+                
+            }
+            function YBR (){
+                var ybr = prompt("you begin down the shady road, and it feels like you keep walking and walking throught the mist forever,you finally reach the countery side and notice a scare crow next to a dead corn feild. The scarecrow has a very menecing grin on its face as if it can sense your presence.Do you stop and investigate or move on ?");
+                
+                if(ybr == "investigate" || ybr == "investigate scarecrow"){
+                    alert("the scae crow moves suddenly and looks around to see who is by him");
+                    
+                    var scarecrow = prompt("he dosent notice you from his perch on a wood stake.how will you get his attention?yell at him or throw a rock at him");
+                    
+                    switch(scarecrow){
+                        case "yell":
+                            alert("The scare crow says 'who goes there'.you say 'it is me mr scarecrow'he says 'oh i didint see you there' ");
+                            break;
+                            case"throw rocks":
+                            alert("The scarecrow says 'who ever did that i will rip you to shreds.you say to him 'I DID!!.he says'who dare try and hurt me you will pay");
+                            break;
+                        default:
+                            alert("(it shudders and nothing else happends)");
+                            YBR;
+                    }  
+                }  
+                else if(ybr == "move on" || ybr == "keep going"){
+                   DRK();
+                }
+               
+            }
+            function DRK(){
+                var drk = prompt("you continue to walk on the dark road and all of the sudden you hear a voice do you want to try to listen harder or continue walking");
+                
+                if(drk == "listen herder" || drk == "listen"){
+                    alert("you listen harder and it sounds just like you!!! do you go off the path to find out what it is or stay on the dark and shady road?");
+                }
+            }
+            
+            
+            
+            
+            
+            
+        
+        </script>
+    
+    </body>
+
+</html>
